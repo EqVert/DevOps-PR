@@ -1,4 +1,4 @@
-#!Копіювання файлів користувача
+#!Копіювання файлів користувача (це лише приклад)
 
 # Змінні шляхів
 SOURCE_FILE="$HOME/example.txt"
@@ -11,5 +11,8 @@ mkdir -p "$BACKUP_DIR"
 # Копіювання файлів і папок у папку для резервних копій
 cp "$SOURCE_FILE" "$BACKUP_DIR"
 cp -r "$SOURCE_DIR" "$BACKUP_DIR"
+
+# Копіювання файлів, виключаючи файли з розширенням .dat
+rsync -av --exclude='*.dat' "$SOURCE_DIR/" "$BACKUP_DIR"
 
 echo "Резервне копіювання завершено!"
